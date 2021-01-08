@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        // 图片循环放
+        window.onload= function(){
+            var prev = document.getElementById('prev');
+            var prev = document.getElementById('next');
+            var img= document.getElementsByTagName('img')[0];
+
+            var imgArr = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg','img/5.jpg']
+            var index  = 0;
+            // notification
+            var info = document.getElementById('info');
+            info.innerHTML = 'totally'+imgArr.length + 'pictures, now' + (index+1);
+
+            // 切换图片就是修改src属性
+            prev.onclick = function(){
+                index--;
+                if(index<0){
+                    index=imgArr.length-1;
+                }
+                // 保存图片路径
+                img.src = imgArr[index]
+
+                info.innerHTML = 'totally'+imgArr.length + 'pictures, now' + (index+1);
+            }
+            next.onclick = function(){
+                index++;
+                if(index>imgArr.length-1){
+                    index=0;
+                }
+                img.src = imgArr[index]
+
+                info.innerHTML = 'totally'+imgArr.length + 'pictures, now' + (index+1);
+            }
+
+        }
+        
+    </script>
+</head>
+<body>
+    <div id='outer'>
+        <p id='info'>totally 5 pictures, now 1</p>
+        <img src="img/1.jpg" alt="ice">
+        <button id='prev'>last</button>
+        <button id='prev'>next</button>
+    </div>
+</body>
+</html>

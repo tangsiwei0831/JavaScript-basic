@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;;
+        }
+        #outer{
+            width:520px;
+            height:333px;
+            /* 居中 */
+            margin: 50px auto;
+            background-color: yellowgreen;
+            padding: 10px;;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #imgList{
+            list-style: none;
+            /* width: 2600px; */
+            position: absolute;
+
+        }
+
+        #imgList li{
+            float: left;
+            /* 左右外边距 */
+            margin: 0 10px;
+        }
+
+        #navDiv{
+            position: absolute;
+            bottom: 15px;
+        }
+
+        #navDiv a{
+            float: left;
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            margin: 0 5px;
+            /* 透明  IE8不行*/
+            opacity: 0.5;
+            /* 兼容IE8 */
+            filter: alpha(opacity=50);
+        }
+
+        #navDiv a:hover{
+            background-color: black;
+        }
+    </style>
+    <script src="58.tools.js"></script>
+    <script>
+        window.onlaod = function(){
+            // 设置imglist宽度
+            var imgList = document.getElementById('imgList');
+            // 所有图片
+            var imgArr = document.getElementsByTagName('img');
+            imgList.style.width = 520*imgArr.length + 'px';
+
+            // 设置导航按钮居中
+            var imgDiv =  document.getElementById('navDiv');
+            var outer = document.getElementById('outer');
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + 'px';
+
+            var allA = document.getElementsByTagName('a');
+            var index = 0;
+            allA[index].style.backgroundColor = 'black';
+
+        // 点击超链接 切换图片
+        // 先执行for loop,执行完了再执行函数，所以函数里i永远是最大值
+        for(var i = 0; i < allA.length; i++){
+            // 确定第几个
+            allA[i].num  = i;
+            allA[i].onclick = function(){
+                clearInterval(timer);
+                // alert(i);//always 5
+                index = this.num;
+                // imgList.style.left = -520 * index + 'px';
+
+                setA();
+                move(imgList, 'left', -520 * index, 20, function(){
+                    // 动画执行完毕，开启自动切换
+                    autoChange();
+                });
+            };
+        }
+
+        autoChange();
+
+        // 自动切换
+
+
+        function setA(){
+            // 判断是不是最后一张
+            if(index >= imgArr.length-1){
+                index = 0;
+
+                // 此时最后一张和第一张一样
+                imgList.style.left = 0;
+            }
+            for(var i = 0; i < allA.length; i++){
+                allA[i].style.backgroundColor = '';
+            }
+
+            // 选中的A设置为黑色
+            allA[index].style.backgroundColor = 'black';
+        }
+
+        // 自动切换函数
+        var timer;
+        function autoChange(){
+            timer = setInterval(function(){
+                index++;
+                index = index%imgArr.length;
+                move(imgList, 'left', -520 * index, 20, function(){})
+                // 修改导航点
+                setA();
+            },3000)
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <!-- picture -->
+        <ul id="imgList">
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+            <li><img src="img/1.jpg" alt=""></li>
+        </ul>
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+</html>

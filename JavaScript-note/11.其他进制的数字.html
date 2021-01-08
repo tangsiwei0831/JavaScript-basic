@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        16进制， 需要以0x开头
+        8进制，以0开头
+        2进制， 以0b开头，不是所有浏览器都支持
+     -->
+     <script>
+        //  a = 16
+         a = 0x10;
+        //  a = 255
+         a = 0xff;
+        //  8进制， a = 56
+        // 有些浏览器会当成八进制解析，有的会当成十进制解析
+         a = 070;
+        //  指定十进制
+         a = parseInt(a,10);
+        //  a = 0b10;
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

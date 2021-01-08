@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color:red;
+            padding: 10px;
+            border:10px solid yellow;
+        }
+
+        #box2{
+            padding: 100px;
+            background-color: #bfa;
+        }
+
+        #box4{
+            width: 200px;
+            height: 300px;
+            background-color: #bfa;
+            overflow: auto;
+        }
+
+        #box5{
+            width: 450px;
+            height: 600px;
+            background-color:yellow;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById('box1');
+            var box4 = document.getElementById('box4');
+            var btn01 = document.getElementById('btn01');
+            btn01.onclick = function(){
+                // 修改样式
+                // 元素.style.样式名 = 值
+                // 驼峰命名法
+                // 改的是内联样式（写在label里）有较高优先级
+                // 如果css里写了！important，那么就会有最高优先级，无法修改样式
+                // box1.style.width = '300px';
+                // box1.style.height = '300px';
+                // box1.style.backgroundColor = 'yellow';
+
+                // 获取元素当前显示的样式
+                // 元素.currentStyle.样式名 只有ie支持
+                // 第一个参数是要获取样式的元素 第二个参数是伪元素 一般是null
+                // var style = getComputedStyle(box1, null);
+                // 不支持ie8及以下
+                // alert(getComputedStyle(box1, null).backgroundColor);
+                // currentstyle 和 getcomputedstyle都是只读
+                // alert(getStyle(box1,'width'));
+
+                // 获取可见宽度和高度
+                // 包括内容区和内边距 只读
+                box1.clientHeight;//120 不带px 可以用来计算
+                box1.clientWidth;//120 不带px 可以用来计算
+                box1.offsetWidth;//140 整个大小
+                box1.offsetHeight;//140
+                // offsetParent 获取定位父元素
+                // 如果都没开启定位，返回body
+                var op = box1.offsetParent;//box2
+                // offsetLeft 当前元素相对于定位元素的水平偏移量
+                // offsetTop 当前元素相对于定位元素的垂直偏移量
+                box1.offsetLeft;//100
+                box1.offsetTop;
+
+                box4.scrollHeight;//600
+                box4.scrollWidth;//450
+
+                // 水平滚动条滚动的距离
+                box4.scrollLeft;
+                // 垂直滚动条滚动的距离
+                box4.scrollTop;
+
+                box4.clientHeight;//283(去除滚动条)
+
+                // 垂直滚动条到底
+                box4.scrollHeight - box4.scrollTop == clientHeight;//minimum is 283
+                // 水平滚动条到底
+                box4.scrollWidth - box4.scrollLeft == clientWidth;
+            }
+
+            // var btn02 = document.getElementById('btn02');
+            // // 通过style属性读取和设置都是内联样式
+            // // 所以如果没设置内联样式，就会是undefined
+            // btn02.onclick = function(){
+            //     box1.style.wdith;//undefined
+            // }
+        };
+
+        // 对所有浏览器适用
+        function getStyle(obj, name){
+            // return getComputedStyle(obj, null)[name];
+            // 如果只是getCOmputedStyle没有的话会报错，如果用window就变成属性，没有的话就是undefined
+            if(window.getComputedStyle){
+                return getComputedStyle(obj, null)[name];
+            }else{
+                return obj.currentStyle[name];
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id='btn01'>click me</button>
+    <!-- <button id='btn02'>click me2</button> -->
+    <br>
+    <div id="box4">
+        <div id="box5"></div>
+    </div>
+    <br>
+    <div id="box3" >
+        <div id='box2' style="position: relative;">
+            <div id="box1"></div>
+        </div>
+    </div>
+</body>
+</html>

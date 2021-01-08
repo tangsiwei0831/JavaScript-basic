@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        String 字符串
+        Number 数值
+        Boolean 布尔值
+        None 空值
+        Undefined 未定义
+            -以上五种是基本数据类型
+        Object 对象 - 复合数据类型
+
+        对象分类：
+        1.内建对象    
+            - ES标准定义中的对象，在任何ES的实现中都可以使用
+            -Math String...
+        2.宿主对象 
+            -由JS运行环境提供的对象
+            -BOM DOM
+        3.自定义对象
+            -由自己创建
+
+        对象的属性名不强制要求遵守标识符规范
+        尽量避免
+        [] 中可以直接传递一个变量，没有限制名称
+        [] 更加灵活
+        属性值可以是任意类型
+
+        in 运算符，检查一个对象是否有指定的属性
+        '属性名' in 对象
+
+        字面量
+        {属性名： 属性值,...}
+
+     -->
+     <script>
+         var obj = new Object();
+         obj.name = 'monkey';
+         obj.var = 'hello';
+        //  obj.gender = 'female';
+        //  obj.age = 18;
+
+        //  obj.name = 'Tom';
+        //  delete obj.name;
+
+        // 如果使用特殊属性名，不能用.来操作
+        // 对象【属性名】 = 属性值
+        obj['123'] = 789;
+
+        var n = '123';
+        console.log(obj['123']);
+        console.log(obj[n]);
+
+        var obj2 = new Object();
+        obj2.name = 'pig';
+        obj.test = obj2;
+
+        console.log('test2' in obj);
+        console.log('test' in obj);
+
+        // 使用对象字面量创建对象
+        // 如果一个属性后面没有属性了，就不要写，
+        var obj3 = {
+            name: 'pig', 
+            age: 28
+        };
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

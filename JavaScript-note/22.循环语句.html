@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        向页面中输入数字
+        while(条件表达式){
+            语句...
+        }
+        先判断后执行
+
+        do...while循环
+        do{
+            语句...
+        }while(条件表达式) 
+        先执行后判断
+        保证循环体至少执行一次
+     -->
+     <script>
+        var i = 0;
+        while(i < 10){
+            document.write(i++ + '<br />');
+        }
+        do{
+            document.write(i++ + '<br />');
+        }while(i <= 10);
+
+        // 假如投资年利率为5%，请问从1000块到5000块需要花费多少年
+        var money = 1000;
+        var i = 0
+        while(money < 5000){
+            money *= 1.05
+            i ++;
+        }
+        </script>
+</head>
+<body>
+    
+</body>
+</html>

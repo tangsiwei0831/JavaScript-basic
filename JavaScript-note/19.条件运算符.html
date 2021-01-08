@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        又叫三元运算符
+        语法：
+            条件表达式？=语句1：语句2;
+            如果条件true执行1， false执行2
+
+            会将条件表达式转化为布尔值
+     -->
+     <script>
+         true?alert('1'):alert('2');
+         var a = 30;
+         var b = 20;
+         var c = 50;
+        //  获取a和b中的最大值
+        //  var max = a > b ? a: b;
+        //  获取a b c 中的最大值
+        // max = max > c ? max : c;
+        // 不推荐
+        var max = a > b ? (a > c ? a : c): (b > c ? b : c);
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

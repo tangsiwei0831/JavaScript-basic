@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        关系成立返回true，不然false
+        > 
+        >=
+        < 
+        <=
+
+        非布尔值的情况：先转换为数字再比较
+        任何值和NaN比较都是false
+        如果符号两侧都是字符串，不会将其转换为数字进行比较，会比较unicode
+        比较两个字符串类型数字，一定要先转换为数字
+     -->
+     <script>
+         var a = 5 > 4;//true
+         a = 1 > true; // false
+         a = 1 >= true; // true
+         a = 1 > '0'; // true 
+         a = 10 > null; // true
+         a = 10 > null; // true
+         a = 10 > 'hello'; // false
+        //  比较字符编码
+        // 先比较 1 和 5
+         a = '11' < '5'; //false
+        // 一位一位比
+         a = 'abc' < 'a';//true
+        //  第一位一样，看后面
+         a = 'bbc' < 'a';//false
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

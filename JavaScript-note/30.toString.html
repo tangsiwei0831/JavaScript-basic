@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Person(name, age, gender){
+            this.name = name;
+            this,age = age;
+            this.gender = gender;
+        }
+
+        var per = new Person('monkey', 18, 'male');
+        // 在页面中打印对象，输出的是对象的toString()方法的返回值
+        console.log(per);
+        // 修改整个person的toString
+        Person.prototype.toString = function(){
+            alert(this.name + this.age+this.gender);
+        }
+        console.log(per);
+
+        // 垃圾回收（GC）
+        // 垃圾过多会导致程序运行过慢
+        // 当一个对象没有任何变量和属性对其引用，占用大量空间
+        // JS有自动垃圾回收机制
+        // 只要将不要的对象设置成null即可，JS就会回收
+        var obj = new Object();
+        obj = null;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

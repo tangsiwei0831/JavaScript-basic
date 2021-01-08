@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var btn01 = document.getElementById('btn01');
+            // 只能同时为一个元素的一个事件绑定一个元素，如果绑定多个马，那么会被覆盖掉
+            var u1 = document.getElementById('u1');
+            btn01.onclick = function(){
+                var li = document.createElement('li');
+                li.innerHTML = "<a href='javascript:;' class='link'>new link</a>";
+                u1.appendChild(li);
+
+                // 点击按钮，弹出内容
+                alert(1);
+            }
+
+            // addEventListener()
+            // 参数： 1.事件的字符串 不要on 2.当事件触发时，该函数会被调用 3. 一般都是false
+            // this 是绑定事件对象
+            // 不支持IE8及以下浏览器
+            // 按顺序来实现事件
+            btn01.addEventListener('click', function(){
+                alert(3);
+            },false)
+
+            // IE8以下
+            // 要on，回调函数
+            // 执行顺序和addEventListener相反
+            btn01.attachEvent('onclick',function(){
+                alert(4);
+            })
+
+
+            btn01.attachEvent('onclick',function(){
+                alert(this);//this 是 window
+            })
+
+            // 定义函数
+            // 对象 字符串 函数
+            // eventstr 不要on
+            function bind(obj, eventStr, callback){
+
+                if(obj.addEventListener){
+                     // 大部分浏览器
+                    obj.addEventListener(eventStr, callback, false);
+                }else{
+                    // this是谁由调用方式决定
+                    // callback.call(obj)
+                     // IE8及以下
+                    obj.attachEvent('on' + eventStr, function(){
+                        callback.call(obj);
+                    });
+                }
+
+            }
+
+
+            // 为每一个a设置函数，比较麻烦，而且只能为已有的超链接设置事件，而新加的超链接需要重新绑定
+            var allA = document.getElementsByTagName('a');
+            for(var i  = 0; i < allA.length; i++){
+                allA[i].onclick = function(){
+                    alert(1);
+                }
+            }
+
+            // 希望只绑定一次，即使元素后添加，也可直接用
+            // 可以尝试将其绑定给元素共同的祖先元素
+            // 事件的委派 将事件同意绑定给元素的共同祖先元素，这样当后代元素事件被触发时，会一直冒泡到祖先元素
+            u1.onclick = function(event){
+                event = event || window.event;
+                // target是触发事件的对象
+                // 如果是我们期望的元素，那么执行
+                if(event.target.className == 'link'){
+                    alert(2);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id='btn01'>add new link</button>
+    <ul id="u1" style="background-color: #bfa;">
+        <li><a href="javascript:;" class="link">link1</a></li>
+        <li><a href="javascript:;" class="link">link2</a></li>
+        <li><a href="javascript:;" class="link">link3</a></li>
+    </ul>
+</body>
+</html>

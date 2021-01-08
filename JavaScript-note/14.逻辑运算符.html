@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        ! not
+        将一个其他数据类型转换为布尔值，取两次反来转换
+
+        && and
+        如果第一个值false，不会看第二个值
+        || or
+        如果第一个值true，不会看第二个值
+
+     -->
+     <script>
+         
+         var a = 'hello';
+         a = !!a; // true
+         var b = 10;
+         b = !b; // b = false
+        //  true && alert('yes');
+        //  false && alert('yes');
+        //  true || alert('yes');
+        //  false || alert('yes');
+
+        // true && true
+        // 如果两个值都是true，返回后面的
+        var result = 1 && 2;// result = 2
+        // 如果有false,返回false
+        result = 0 && 2;//result = 0
+        // 如果两个都是false，返回靠前的
+        result = NaN && 0;// result = NaN
+        // 如果第一个值true，返回第一个值
+        result = 1 || 2; // result = 1
+        // 如果第一个值false，直接返回第二个值
+        result = NaN || 1;
+
+        result = '' || 'hello';//hello
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

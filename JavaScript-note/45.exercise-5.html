@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #areaDiv{
+            border: 1px solid black;
+            width: 300px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        #showMsg{
+            border: 1px solid black;
+            width: 300px;
+            height: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            // 当鼠标在areaDiv中移动时，shiwMsg中显示鼠标坐标
+            var areaDiv = document.getElementById('areaDiv');
+            var showMsg = document.getElementById('showMsg');
+            // onmousemove 鼠标移动时被触发
+            // 在事件的响应函数被触发时，浏览器会将一个事件对象作为实参传递进来
+            // 里面包括当前事件一切信息，包括鼠标坐标，滚轮方向
+            // 在ie8中，不会传递实参，所以不支持
+            // 加window 火狐不兼容
+            areaDiv.onmousemove = function(event){
+                if(!event){
+                    event = window.event;
+                }
+                var x = event.clientX;
+                var y = event.clientY;
+
+                showMsg.innerHTML = 'x= '+ x +' , y = '+ y
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="areaDiv"></div>
+    <div id="showMsg"></div>
+</body>
+</html>

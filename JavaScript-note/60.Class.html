@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .b1{
+            width:100px;
+            height: 100px;
+            background-color: red;
+        }
+        .b2{
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+            var box = document.getElementById('box');
+            var btn01 = document.getElementById('btn01');
+
+            btn01.onclick = function(){
+                // 每修改一个样式，浏览器就需要重新渲染一次，性能比较差
+                // box.style.width = '200px';
+                // box.style.height = '200px';
+                // box.style.backgroundColor = 'yellow';
+
+                // 修改class来修改样式
+                // 只需要修改一次就可以修改多个样式
+                // 浏览器只需要渲染一次
+
+                // 在b1基础上加不属性， 要加空格
+                // box.className += ' b2';
+                addClass(box, 'b2');
+
+                remove(box, 'b2');
+
+            };
+        };
+
+        // cn className
+        function addClass(obj, cn){
+            if(hasClass(obj, cn)){
+                obj.className += ' ' + cn;
+            };
+        }
+
+        // 哦按段一个元素是否含有指定class值
+        function hasClass(obj, cn){
+            var reg = new RegExp('\\b'+cn+'\\b');
+            return reg.test(obj.className);
+        }
+
+        function removeClass(obj, cn){
+            var reg = new RegExp('\\b'+cn+'\\b');
+            obj.className = obj.className.replace(reg, '');
+        }
+
+        // 切换一个类
+        // 如果元素中有，就删除，没有就加上
+        function toggleClass(obj, cn){
+            if(hasClass(obj, cn)){
+                removeClass(obj, cn);
+            }else{
+                addClass(obj, cn);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">change style</button>
+    <div id="box" class="b1 b2"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num = 1;
+        setInterval(function(){
+            console.log(num++);
+        }, 3000)
+
+        // 延时调用和定时调用可以互相代替的
+
+        // 延时调用
+        // 3000毫秒后再执行，只执行一次
+        var timer = setTimeout(function(){
+            console.log(num++);
+        }, 3000)
+
+        // 关闭延时调用
+        clearTimeout(timer);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

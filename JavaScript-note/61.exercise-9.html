@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    a,
+    img {
+        border: 0;
+        text-decoration: none;
+    }
+</style>
+<script src="58.tools.js"></script>
+<script>
+    window.onload = function () {
+        // 当div有collapsed这个类时，div折叠，不然就是展开
+        var menuSpan = document.querySelectorAll('.menuSpan');
+
+        var openDiv = menuSpan[0].parentNode;
+
+        for (var i = 0; i < menuSpan.length; i++) {
+            menuSpan[i].onclick = function () {
+                var parentDiv = this.parentNode;
+
+                toggleMenu(parentDiv);
+
+                if (openDiv != parentDiv && !hasClass(openDiv, 'collapsed')) {
+                    // 打开菜单，关闭之前的
+                    // 为了统一处理动画过渡效果
+                    // addClass(openDiv, 'collapsed');
+                    // 不需要有remove功能
+                    // toggleClass(openDiv, 'collapsed');
+                    toggleMenu(openDiv);
+                }
+
+
+                openDiv = parentDiv;
+
+
+            }
+        }
+
+        function toggleMenu(obj) {
+            // 获取元素高度
+            var begin = obj.offsetHeight;
+
+            // 切换
+            toggleClass(obj, 'collapsed');
+
+            var end = obj.offsetHeight;
+
+            // begin 向end过渡
+            // 重置高度
+            obj.style.height = begin + 'px';
+
+            // 执行动画
+            move(obj, 'height', end, 10, function () {
+                // 动画执行完毕，删除
+                obj.style.height = '';
+            })
+        }
+    }
+</script>
+
+<body>
+    <div id="my_menu" class="sdmenu">
+        <div>
+            <span class="menuSpan">在线工具</span>
+            <a href="#">图像优化</a>
+            <a href="#">收藏夹生成器</a>
+            <a href="#">邮件</a>
+            <a href="#">htaccess密码</a>
+            <a href="#">梯度图像</a>
+            <a href="#">按钮生成器</a>
+        </div>
+        <div class="collapsed">
+            <span class="menuSpan">支持我们</span>
+            <a href="#">推荐我们</a>
+            <a href="#">链接我们</a>
+            <a href="#">网络资源</a>
+        </div>
+        <div class="collapsed">
+            <span class="menuSpan">合作伙伴</span>
+            <a href="#">JS工具包</a>
+            <a href="#">CSS驱动</a>
+            <a href="#">CodingForums</a>
+            <a href="#">CSS例子</a>
+        </div>
+        <div class="collapsed">
+            <span class="menuSpan">测试电流</span>
+            <a href="#">Current or not</a>
+            <a href="#">Current or not</a>
+            <a href="#">Current or not</a>
+            <a href="#">Current or not</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+
+            left: 200px;
+            top: 200px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            // 当鼠标被按下时，开始拖拽 onmousedown
+            // 鼠标移动时，拖拽元素跟随鼠标移动 onmousemove
+            // 鼠标松开时，固定位置 onmouseup
+            var box1 = document.getElementById('box1');
+            box1.onmousedown = function(event){
+                // 设置剥削捕获所有鼠标按下事件
+                // 只有IE支持
+                // if(box1.setCapture){
+                //     box1.setCapture();
+                // }
+                box1.setCapture && box1.setCapture();
+                box1.setCapture();
+                event = event || window.event;
+                // div 偏移量
+                var ol = event.clientX - box1.offsetLeft;
+                var ot = event.clientY - box1.offsetTop;
+
+                // document绑定onmousemove
+                document.onmousemove = function(event){
+                    event = event || window.event;
+                    var left = event.clientX  - ol;
+                    var top = event.clientY  - ot;
+
+                    box1.style.left = left + 'px';
+                    box1.style.top = top + 'px';
+                }
+
+                document.onmouseup = function(){
+                    // 取消事件
+                    document.onmousemove = null;
+
+                    // 使onmouseup变成一次性事件
+                    document.onmouseup = null;
+
+                    // 取消事件的捕获
+                    box1.releasePointerCapture &&  box1.releaseCapture();
+                }
+
+                // 当拖拽网页内容时，浏览器会默认去搜索引擎中搜索内容
+                // 此时会导致拖拽功能异常，这是浏览器默认行为
+                // 如果不希望发生， 则可以通过return false取消
+                // 但对ie8不起作用
+
+                return false;
+
+            //     // setcapture 一次性
+            //     // 这个元素会把下一次鼠标按下的相关事件捕获到自己身上
+            //     var btn01 = document.getElementById('btn01');
+            //     var btn02 = document.getElementById('btn02');
+            //     btn01.onclick = function(){
+            //         alert(1);
+            //     };
+            //     btn02.onclick = function(){
+            //         alert(2);
+            //     }
+            }
+        }
+    </script>
+</head>
+<body>
+    I am words
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <!-- <button id="btn01">b1</button>
+    <button id="btn02">b2</button> -->
+</body>
+</html>

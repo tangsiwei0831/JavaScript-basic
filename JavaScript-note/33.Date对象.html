@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var d = new Date();
+        console.log(d);//当前时间
+        //创建指定时间
+        var d2 = new Date('12/03/2016 11:10:30');
+        console.log(d2);
+        var date = d2.getDate();//03
+        // 0是周日
+        var day = d2.getDay();//周五
+        // 0-11 代表1 - 12月
+        d2.getMonth();//11
+
+        d2.getFullYear();//2016
+        // getTime()-获取当前日期对象的时间戳
+        // 时间戳是指从1970年1月1日0时0分0秒到当前时间所花费的毫秒数
+        // 1秒=1000毫秒
+        // 计算机底层保存时间都是使用时间戳
+        d2.getTime();
+
+        // 利用时间戳测代码性能
+        var time  = Date.now();
+        for(var i = 0; i < 100; i++){
+            console.log(i);
+        }
+        var end = Date.now();
+        console.log(end-now);//运行时间
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

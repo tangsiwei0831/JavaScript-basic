@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            // 查找#bj节点
+            var btn01 = document.getElementById('btn01');
+            btn01.onclick = function(){
+                // 查找#bj节点
+                var bj = document.getElementById('bj');
+                alert(bj.innerHTML);
+
+                // 所有li节点
+                // 返回一个类数组对象
+                var lis = document.getElementsByTagName('li');
+                // 类数组对象
+                var inputs = document.getElementsByName('gender');
+                // 元素节点属性： 一般都是元素.属性名
+                // 读取class属性时是 元素.className
+                for(var i = 0;i < inputs.length;i++){
+                    alert(inputs[i].value);//文字
+                }
+
+            }
+            var city = document.getElementById('city');
+            //换行空白也包括在里面了
+            // ie8及以下浏览器中不包括空白
+            var cns = city.childNodes;
+            var lis = city.getElementsByTagName('li');
+
+            // children 可以获取当前元素所有的子元素
+            city.children;
+            city.firstChild;//包括空白文本
+            city.firstElementChild;//不包括空白文本
+            city.lastChild;
+            city.parentNode;//父元素
+            // innerText  将HTML标签去除 innerHTML还有标签
+            city.innerText;
+            city.previousSibling;//前一个兄弟节点 包括空白文本
+            city.previousElementSibling;//前一个兄弟元素 不包括空白文本
+
+            var fc = bj.firstChild;//获取文本节点
+            alert(fc.nodeValue);//文本内容
+
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        break可以用来退出switch或循环语句
+        会立即停止最近的循环语句
+
+        可以为循环语句起名来标识
+        可以在break后面加一个label
+
+        continue可以用来跳过这次循环
+        默认只会对它最近的循环起作用
+     -->
+     <script>
+         //0,1,2
+         for(var i =0; i < 5; i ++){
+             alert(i);
+             if(i == 2){
+                break;
+             }
+         }
+
+         outer:
+         for(var i =0; i < 5; i ++){
+             document.write('外层循环');
+             for(var j = 0; j<5;j++){
+                break outer;
+                console.log('内层循环');
+             }
+         }
+         //0,1,3,4
+         for(var i =0; i < 5; i ++){
+             alert(i);
+             if(i == 2){
+                continue;
+             }
+         }
+
+        //  测试性能
+        // 开启计时器
+        // 需要字符串作为参数，作为计时器的标识
+        console.time('test');
+        
+        //终止
+        console.timeEnd('test');
+
+         //只需要检查到根号就行
+        for(var i = 2; i < 100; i++){
+            var flag = true;
+            for(var j = 2; j <= Math.sqrt(i); j++){
+                if(i%j == 0){
+                    flag = false;
+                    break;//low time complexity
+                }
+
+            }
+            }
+            if(flag){
+                console.log('yes');
+            }
+
+
+
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- script标签一旦用于引入外部文件，就不能编写代码了，编写了浏览器会忽略
+        如果需要再写一个script标签
+     -->
+    <script src='js/script.js'> </script>
+    <script>alert('I am from insde')</script>
+</head>
+<body>
+    <!-- 可以将js编写到标签的onclick属性
+        点击按钮时才会执行
+     -->
+    <button onclick="alert('why click me');">点我一下</button>
+    <!-- js可以写到超链接中的href属性 -->
+    <a href="javascript:alert('click!');">click me</a>
+</body>
+</html>

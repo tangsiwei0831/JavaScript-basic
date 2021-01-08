@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        运算符也叫操作符
+        typeof 它会将该值的类型以字符串类型返回
+
+        算数运算符
+        任何值和NaN做运算都是NaN
+        两个string会拼在一起，还是string
+        任何值和字符串做运算，都会转换为字符串，再运算
+        + 
+        - 
+        * 
+        / 
+        %
+
+        一元运算符： 只需要一个操作数
+        + 正号
+        - 负号
+        可以将其他类型转换为number
+
+        自增和自减
+        后++(a++)和前++(++a)都会自增1
+        a++的值是等于原来的值（自增前）
+        ++a等于原变量自增后的值
+
+        自减， --a或者a--都会立即使a-1
+        a--是a
+        --a是a-1
+     -->
+     <script>
+         
+         var c = 123;
+        //  转化为字符串
+         c = c + '';
+
+         result = 1 + 2 + '3';
+        //  33
+         document.write('result= ' + result)
+
+         res =  '1' + 2 + 3;
+        //  123
+         document.write('res= ' + res)
+
+         result = 100 - '1' // 99
+
+         var d = '123';
+        //  转换为number
+         d = d * 1;
+         d = d - 0;
+         d = d / 1;
+
+         c = true;
+         c = + a;
+         c = 1 + + '2' + 3; // 6
+
+         var a = 1;
+         console.log(a++); // 1
+         console.log(++a); // 2
+
+         var d = d ++ + ++d + d;// 20 + 22 + 22 = 64
+         console.log(d);
+
+         d = d++; // d = 20
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

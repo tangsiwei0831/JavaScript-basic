@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+
+            var items = document.getElementsByName('items');
+            var checkedAllBox = document.getElementById('checkedAllBox');
+            // select all
+            var checkedAllBtn = document.getElementById('checkedAllBtn');
+            checkedAllBtn.onclick = function () {
+                // get checkbox
+                for (var i = 0; i < items.length; i++) {
+                    items[i].checked = true;
+                }
+                // set checkedAllBox
+                checkedAllBox.checked = true;
+
+            }
+
+            var checkedNoBtn = document.getElementById('checkedNoBtn');
+            checkedNoBtn.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    items[i].checked = false;
+                }
+                // set checkedAllBox
+                checkedAllBox.checked = false;
+
+            }
+
+            // reverse
+            var checkedRevBtn = document.getElementById('checkedRevBtn');
+            checkedRevBtn.onclick = function () {
+                checkedAllBox.checked = true;
+                for (var i = 0; i < items.length; i++) {
+                    // if(items[i].checked){
+                    //     // set as false
+                    //     items[i].checked = false;
+                    // }else{
+                    //     items[i].checked = true;
+                    // }
+                    items[i].checked = !items[i].checked;
+
+
+                    // 只要一个没选中
+                    if (!items[i].checked) {
+                        checkedAllBox.checked = false;
+
+
+
+
+                    }
+                }
+            }
+
+
+
+
+            var sendBtn = document.getElementById('sendBtn');
+            sendBtn.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    // if(items[i].checked){
+                    //     // set as false
+                    //     items[i].checked = false;
+                    // }else{
+                    //     items[i].checked = true;
+                    // }
+                    if (items[i].checked) {
+                        alert(items[i].value);
+                    }
+                }
+            }
+
+            // select all or not?
+            checkedAllBox.onclick = function () {
+                // get checkbox
+                for (var i = 0; i < items.length; i++) {
+                    // if(items[i].checked){
+                    //     // set as false
+                    //     items[i].checked = false;
+                    // }else{
+                    //     items[i].checked = true;
+                    // }
+                    items[i].checked = this.checked;
+                }
+            }
+
+            // 如果四个多选框都被选中，那么checkedAllBox也应该被选中，反之亦然
+            // 四个多选框分别绑定单击响应函数
+            for (var i = 0; i < items.length; i++) {
+                items[i].onclick = function () {
+                    checkedAllBox.checked = true;
+
+                    // 判断多选框是否全选
+                    for (var j = 0; j < items.length; j++) {
+                        // 只要一个没选中
+                        if (!items[j].checked) {
+                            checkedAllBox.checked = false;
+
+                            break;
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <form method="POST" action="">
+        your favprite sport is?<input type="checkbox" id='checkedAllBox'> select all or not?
+        <br>
+        <input type="checkbox" name='items' value='soccer'>soccer
+        <input type="checkbox" name='items' value='basketball'>basketball
+        <input type="checkbox" name='items' value='badminton'>badminton
+        <input type="checkbox" name='items' value='ping pong'>ping pong
+        <br>
+        <input type="button" id="checkedAllBtn" value='select all'>
+        <input type="button" id="checkedNoBtn" value='select none'>
+        <input type="button" id="checkedRevBtn" value='opposite'>
+        <input type="button" id="sendBtn" value='submit'>
+    </form>
+</body>
+
+</html>

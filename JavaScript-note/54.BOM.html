@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // BOM 浏览器对象模型 broader object model
+        // 操作浏览器
+        // 提供一组对象来操作
+        // Window  浏览器窗口， 网页中的全局对象
+        // Navigator 代表的当前浏览器的信息， 通过该对象可识别不同的浏览器
+        // Location 代表浏览器的地址栏，可以获取地址栏信息或者跳转页面
+        // History 代表历史记录， 由于隐私原因，不能获取具体的历史记录，只能操作浏览器向前或向后后退。
+        // 而且该操作只在当次访问有效
+        // Screen 代表用户屏幕信息
+        // 都是作为window对象属性保存的,也可以直接使用
+        
+        // navigator 由于历史原因,navigator中的大部分属性不能用来识别浏览器了
+        // 一般只会用userAgent来判断用户信息
+        // 这是一个字符串，包含浏览器信息
+        navigator.appName;//Netscape
+        var ua = navigator.userAgent;
+        if(/firefox/i.test(ua)){
+            alert('this is firefox');
+        }else if(/chrome/i.test(ua)){
+            alert('this is chrome');
+        }else if(/msie/i.test(ua)){
+            alert('this is IE');//IE11不行
+        }else if('ActiveXObject' in window){
+            alert('this is IE11');
+        }
+
+        // 如果通过userAgent不能判断，可以通过浏览器特有对象来判断
+        // 比如 ActiveXObject(IE)
+        if('ActiveXObject' in window){
+            alert('this is IE');
+        }else{
+            alert('not IE');
+        }
+
+
+        history.length;//url数量
+        history.back();//回退到上一个页面
+        history.forward();//跳转到下一个页面
+        // go() 跳转到指定页面
+        // 1 是指向前跳转一个， -1 是向后跳转一个
+        history.go(1);
+        history.go(-1);
+        history.go(-2); 
+
+        // 如果将location修改为完整的路径或相对路径，那么页面会自动跳转到该路径， 并且会生成相应的历史记录
+        // location = 'http://www.baidu/com';
+        // assign() 跳转到其他页面
+        // locatioin.assign('http://www.baidu/com');
+        //如果传递一个true，那么就会强制清空缓存页面
+        // location.reload(true);
+        // 替换当前页面
+        // 不会生成历史记录，不能使用回退按钮
+        // location.replace('exercise-7.html')
+        window.onlaod = function(){
+            var count = document.getElementById('count');
+            // 定时调用，可以将一个函数每隔一段时间执行一次
+            // 参数： 1.回调函数，每隔一段时间被调用一次
+            // 2.每次调用间隔时间，单位是毫秒
+            var num = 1;
+            var timer = setInterval(function(){
+                count.innerHTML = num++;
+                if(num == 11){
+                    clearInterval(timer);
+                }
+            },1000)
+
+            // 可以用来关闭定时器
+            // 方法需要一个定时器作为参数，这样讲关闭表示对应的定时器
+
+        }
+</script>
+</head>
+<body>
+    <h1 id="count"></h1>
+</body>
+</html>

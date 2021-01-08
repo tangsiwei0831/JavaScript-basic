@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 调用函数时，会传递两个遗憾参数
+        // 除了this，还有arguments
+        // arguments 是类数组对象
+        // 所有实参都会在arguments中保存
+        // callee对应的当前正在执行的函数对象
+        function fun(){
+            // alert(this);
+            // consoloe.log(a);
+            // console.log(b);
+            console.log(arguments.length);//2
+            console.log(arguments[0]);//hello
+            console.log(arguments.callee);
+        }
+        fun('hello', true)
+        // call, apply 函数对象方法
+        // 都会调用函数执行
+        // 可以将一个对象指定为第一个参数,就是this
+        var obj = {
+            name: '1',
+            sayName: function(){
+                alert(this.name);
+            }
+    };
+        var obj2 = {name: '2'};
+        // call可以将实参在对象之后传递
+        fun.call(obj, 2, 3);
+        // apply将实参封装到数组里传递
+        fun.apply(obj,[2,3]);
+        obj.sayName.apply(obj2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

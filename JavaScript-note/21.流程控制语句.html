@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        1.条件判断语句
+        2.条件分支语句
+        3.循环语句
+
+        1. if 语句
+        只能控制紧随其后的语句，如果希望控制多条语句，将这些语句统一放到代码块中
+        语法一：
+            if(条件表达式){
+                语句...
+            }
+        
+            语法二：
+                if(条件表达式){
+                语句
+            }else{
+                语句
+            }
+
+            语法三：else可以省略
+                if(条件表达式){
+                语句...
+            }else if(条件表达式){
+                语句...
+            }else if(条件表达式){
+                语句...
+            }else{
+                语句...
+            }
+
+        2.条件分支语句 switch语句
+        switch(条件表达式){
+            case 表达式：
+                语句。。。
+                break;
+            case 表达式：
+                语句。。。
+                break;
+            case 表达式：
+                语句。。。
+                break;
+            default：
+                语句。。。
+                break;
+        }
+        会将case后的表达式的值和switch后的条件表达式的值进行全等比较
+        如果true当前case后的都会执行
+        使用break会退出switch语句
+        如果case都是false,执行default
+     -->
+     <script>
+         var a = 10;
+         if(a > 10 && a < 20){
+            alert('hello');
+            alert('oh');
+         }else if(a = 5){
+             alert('good');
+         }else{
+             alert(1);
+         }
+        // 弹出提示框，会有文本框，该函数需要字符串作为参数作为提示文字 
+        // 用户输入值会是返回值
+         var score = prompt('score');
+
+        //  排序
+        // 转换成number
+         var num1 = +prompt('enter num1');
+         var num2 = +prompt('enter num2');
+         var num3 = +prompt('enter num3');
+
+         if(num1 < num2 && num1 < num3){
+            //  num1最小
+             if(num2 < num3){
+                 alert(num1+','+num2+','+num3);
+             }else{
+                alert(num1+','+num3+','+num2);
+             }
+
+         }else if(num2 < num1 && num2 < num3){
+            //  num2最小
+            if(num1 < num3){
+                 alert(num2+','+num1+','+num3);
+             }else{
+                alert(num2+','+num3+','+num1);
+             }
+             
+         }else{
+            //  num3最小
+            if(num1 < num2){
+                 alert(num3+','+num1+','+num2);
+             }else{
+                alert(num3+','+num2+','+num1);
+             }
+            }
+
+        // 根据num的值，输出对应的字符串
+        var num = 1;
+        switch(num){
+            case 1:
+                console.log('1');
+                break;
+            case 2:
+                console.log('2');
+                break;
+            case 3:
+                console.log('3');
+                break;
+            default:
+            console.log('error');
+                break;
+        }
+
+        // 判断成绩合不合格
+        switch(true){
+            case num >= 60:
+                console.log('pass');
+                break;
+            default:
+            console.log('fail');
+            break;
+
+        }
+
+
+
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

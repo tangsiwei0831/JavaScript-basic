@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        基本数据类型在栈内存中存储
+        值与值独立存在，修改一个变量不会修改其他变量
+     -->
+     <script>
+         var a = 123;
+         var b = a;
+         a++;
+         console.log(a);//124
+         console.log(b);//123
+
+         var obj = new Object();
+         obj.name = 'monkey';
+         var obj2 = new Object();
+         obj.name = 'pig';
+
+         console.log(obj.name);//pig
+         console.log(obj2.name);//pig
+
+         obj2 = null;
+         console.log(obj);//object
+         console.log(obj2);//null
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        解析器每次调用函数时都会向函数内部传一个隐含参数
+        以函数形式调用时，this指向window
+        以方法形式调用时，this指向obj
+     -->
+     <script>
+         function fun(){
+            console.log(this.name);
+         }
+         fun();
+         var obj = {
+             name: 'monkey',
+             sayName: fun
+         }
+         obj.sayName();//this is obj
+         fun(); //this is window
+         
+
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width:100px;
+            height: 100px;
+            background-color: red;
+
+            position: absolute;
+        }
+    </style>
+
+    <script>
+        window.onload = function(event){
+            // 使div可以根据鼠标移动
+            var box1 = document.getElementById('box1');
+
+            // 兼容问题
+            // event = event || window.event;
+
+            document.onmousemove = function(event){
+                // 火狐认为滚动条是html的
+                // chrome || 火狐
+                var st = document.body.scrollTop || document.documentElement.scrollTop;
+                var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+                // 相对于页面
+                var left = event.pageX;
+                var top = event.pageY;
+
+                box1.style.left = left + sl + 'px';
+                box1.style.top = top + st + 'px';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+</body>
+</html>

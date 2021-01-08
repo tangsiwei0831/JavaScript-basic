@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        使用Boolean函数
+            数字转Boolean,除了0和NaN，其余都是true
+            字符串转Boolean，除了空串，其余都是true，哪怕有空格
+            null和undefined转换成false
+            对象也会转换成true
+     -->
+     <script>
+         var a = 123;//true
+         a = -123; // true
+         a = 0; //false
+         a = Infinity; //true
+         a = NaN; // false
+         a = Boolean(a);
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

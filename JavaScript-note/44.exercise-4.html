@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #info{
+            width:300px;
+            height: 500px;
+            background-color: #bfa;
+            overflow: auto;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            // onscroll 滚动条滚动时触发
+            var info = document.getElementById('info');
+            var inputs = document.getElementsByTagName('input');
+            info.onscroll = function(){
+                // 垂直滚动到底时才可用
+                if(info.scrollHeight - info.scrollTop == info.clientHeight){
+                    // 使表单可用
+                    inputs[0].disabled = false;
+                    inputs[1].disabled = false;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>welcome customer</h3>
+    <p id="info">
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+        read carefully, so that you can have registration
+    </p>
+    <!-- 添加disabled 则不可用 -->
+    <input type="checkbox" disabled='disabled'> I have read
+    <input type="submit" value="registration" disabled='disabled'>
+</body>
+</html>

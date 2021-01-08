@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        ==
+        当使用==比较两个值时，如果类型不同，会自动转换成相同类型再进行比较
+
+        undefined衍生自null
+        所以这两个值做相等判断时，会返回true
+
+        NaN不和任何值相等，包括本身
+
+        !=
+        会进行类型转换
+
+        === 全等，不会做类型转换，类型不同直接返回false
+
+        !== 不全等，不会做类型转换，类型不同直接返回true
+     -->
+     <script>
+         var a = 1 == 1; //true
+         a == 4;//false
+
+         a = '1' == 1;//true
+
+        //  都转化为数字进行比较
+         document.write('1' == true);//true
+         document.write('hello' == true);//true
+
+        //  没有转换成number
+         document.write(0 == null);//false
+
+         document.write(NaN == NaN);//false
+
+         var b = NaN;
+        //  判断b是否是NaN
+        // 可以通过isNaN()来判断
+        document.write(isNaN(b));//true
+
+        document.write(1 != '1');//false
+
+        document.write(null === undefined);//false
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        // 让div根据方向键移动
+        window.onload = function () {
+            var speed = 10;
+
+            var dir = 0;
+
+            setInterval(function () {
+                // 37 左, 38 上 ,39 右, 40 下
+                switch (dir) {
+                    case 37:
+                        // alert(1);
+                        // 减小
+                        box1.style.left = box1.offsetLeft - speed + 'px';
+                        break;
+                    case 39:
+                        // alert(2);
+                        box1.style.left = box1.offsetLeft + speed + 'px';
+                        break;
+                    case 38:
+                        // alert(3);
+                        box1.style.top = box1.offsetTop - speed + 'px';
+                        break;
+                    case 40:
+                        // alert(4);
+                        box1.style.top = box1.offsetTop + speed + 'px';
+                        break;
+
+                }
+            }, 30)
+
+            document.onkeydown = function (event) {
+                event = event || window.event;
+                // 按了ctrl就加速
+                if(event.ctrlKey){
+                    speed = 50;
+                }
+
+                dir = event.keyCode;
+            };
+            document.onkeyup = function(){
+                // cancel movement
+                dir = 0;
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+</body>
+
+</html>

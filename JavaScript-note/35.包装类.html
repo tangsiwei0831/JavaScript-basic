@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num = new Number(3);// type is object, not number
+        var str = new String('hello');// type is object
+        var bool = new Boolean(false);// type is object
+        num.hello = 'abcdefg';
+        // 基本数据类型对象进行比较时带来一些不可预期的结果
+        // bool是对象，转成bool值永远是true
+        if(bool){
+            alert(1);
+        }//会alert出来
+
+        // 对一些基本数据类型调用属性和方法时
+        // 浏览器会临时将其包装转换为对象，然后调用方法和属性
+        // 调用完后，在将其转换为基本数据类型
+        var s = 123;
+        s = s.toString();
+        console.log(typeof s);//string
+
+        var str = 'hello atguigu';
+        str.length;//13
+        // 在底层以字符数组保存的
+        // charAt 返回字符串中指定位置字符
+        str.charAt(0);//h
+        str.charCodeAt(0);//72 unicode
+        // 根据字符编码获取字符
+        str.fromCharCode(72);//h
+        // concat 连接字符串 (+)
+        // str.concat('hi','bye');
+        // indexOf 检索一个字符串中是否含有指定内容
+        // 第二个参数是指开始查找位置
+        // 如果有返回其第一次出现的index
+        // 如果没有就返回-1
+        str.indexOf('h');//0-index
+        str.indexOf('h', 1);//6-index
+
+        // lastIndexOf() 从后往前走
+        str.lastIndexOf('h');//6
+        str.lastIndexOf('h',5);//0
+
+        str = 'abcdefghijk';
+        // 包括开始index，不包括结束index
+        // difference: slice 可用负数作为index
+        str.slice(0,2);//ab
+        // 这个方法不能用负值,如果有当成0,而且会自动调整参数位置,如果第二个参数小于第一个,自动交换位置
+        str.substring(0,2);//ab
+        // 第一个参数是开始index,第二个是截取长度
+        str.substr(1,2);//bc
+        str = 'abc,bcd,efg,hij';
+        str.split(',');//[abc,bcd,efg,hij]
+        str = 'abCDefg';
+        str.toUpperCase();//'ABCDEFG'
+        str.toLowerCase();//'abcdefg'
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            // get body label
+            // var body = document.getElementsByTagName('body')[0];
+            var body = document.body;
+
+            var html = document.documentElement;//html label
+
+            var all = document.all;//undefined all labels in page, including meta,head,body,script,html,title
+
+            all = document.getElementsByTagName('*');//all labels
+
+            var box1 = document.getElementsByClassName('box1');//不支持ie8及以下
+
+            // 获取box1中的div
+            var divs = document.getElementsByTagName('div');
+
+            // 可以根据CSS选择器来查询一个元素节点对象
+            // 只会返回一个，如果有多个，只会返回第一个
+            document.querySelector('.box1 div');
+            document.querySelector('.box1');
+
+            document.querySelectorAll('.box1');//select all
+
+            // 创建广州节点 li
+            // 创建元素节点对象
+            var li = document.createElement('li');
+            // 创建文本节点
+            var gztext = document.createTextNode('guang zhou');
+            // 将gztxt设置为li的子节点
+            li.appendChild(gztext);
+            // li添加到city下
+
+            var city = document.getElementById('city');
+            city.appendChild(li);
+
+            // 将广州节点插入到北京前面
+            var bj = document.getElementById('bj');
+            // 父节点city
+            // 父节点.insertBefore(新节点，旧节点)
+            city.insertBefore(li, bj);
+
+            city.replaceChild(li, bj);//替换
+
+            // delete 父节点remove
+            // city.removeChild(bj);
+            // 子节点.parentNode.removeChild(子节点)
+            bj.parentNode.removeChild(bj);
+
+            // 加li 但是会全部删除子节点再重新加上去，动静太大
+            // city.innerHTML += '<li>guang zhou</li>'
+            li.innerHTML = 'guang zhou';
+            city.appendChild(li);
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div></div>
+    </div>
+    <div></div>
+    
+</body>
+</html>
